@@ -32,5 +32,13 @@ namespace AirTrafficMonitoringUnitTest
         {
             Assert.That(_uut.CreateTrack(trackInfo).XCoordinate, Is.EqualTo(expectedCoordinate));
         }
+
+        [TestCase("ATR423;23045;12932;14000;20151006213456789", 12932)]
+        [TestCase("ATR423;23045;16843;14000;20151006213456789", 16843)]
+        public void CreateTrack_CreatesTrackWithYCoodinate_YCoodinateIsCorrect(string trackInfo, int expectedCooridnate)
+        {
+            Assert.That(_uut.CreateTrack(trackInfo).YCoordinate, Is.EqualTo(expectedCooridnate));
+        }
+
     }
 }

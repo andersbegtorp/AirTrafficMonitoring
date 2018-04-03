@@ -16,6 +16,7 @@ namespace AirTrafficMonitoring
 
             track.Tag = array[0];
             track.XCoordinate = Convert.ToInt32(array[1]);
+            track.YCoordinate = Convert.ToInt32(array[2]);
 
             return track;
         }        
