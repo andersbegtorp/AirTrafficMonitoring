@@ -28,6 +28,7 @@ namespace AirTrafficMonitoringUnitTest
 
         [TestCase("ATR423;39045;12932;14000;20151006213456789", 39045)]
         [TestCase("ATR423;23045;12932;14000;20151006213456789", 23045)]
+        [TestCase("ATR423;23100;12932;14000;20151006213456789", 23100)]
         public void CreateTrack_CreatesTrackWithXCoordinate_XCoordinateIsCorrect(string trackInfo, int expectedCoordinate)
         {
             Assert.That(_uut.CreateTrack(trackInfo).XCoordinate, Is.EqualTo(expectedCoordinate));
