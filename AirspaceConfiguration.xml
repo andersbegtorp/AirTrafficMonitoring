@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<AirspaceConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SouthWestXCoordinate>10000</SouthWestXCoordinate>
+  <SouthWestYCoordinate>10000</SouthWestYCoordinate>
+  <NorthEastXCoordinate>90000</NorthEastXCoordinate>
+  <NorthEastYCoordinate>90000</NorthEastYCoordinate>
+  <LowestAltitude>500</LowestAltitude>
+  <HighestAltitude>20000</HighestAltitude>
+</AirspaceConfiguration>
