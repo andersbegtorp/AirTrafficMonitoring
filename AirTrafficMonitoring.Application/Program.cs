@@ -13,6 +13,7 @@ namespace AirTrafficMonitoring.Application
         {
 
             XMLAirspaceConfiguration.LoadAirspace(@"../../../AirspaceConfiguration.xml");
+
         }
     }
 }
