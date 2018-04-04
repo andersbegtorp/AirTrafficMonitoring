@@ -42,5 +42,13 @@ namespace AirTrafficMonitoringUnitTest
             Assert.That(_uut.CreateTrack(trackInfo).YCoordinate, Is.EqualTo(expectedCooridnate));
         }
 
+        //[TestCase("ATR423;23046;16851;14000;20151006213456789", 2015, 10, 06, 21, 34, 56, 789)]
+        //public void CreateTrack_CreatesTrackWithDateTime_DateTimeIsCorrect(string trackInfo, int yyyy, int mm, int dd,
+        //    int hh, int min, int ss, int fff)
+        //{
+        //    DateTime dt = new DateTime(yyyy,mm,dd,hh,min,ss,fff);
+        //    Assert.That(_uut.CreateTrack(trackInfo).TimeStamp, Is.EqualTo(dt));
+        //}
+
     }
 }
