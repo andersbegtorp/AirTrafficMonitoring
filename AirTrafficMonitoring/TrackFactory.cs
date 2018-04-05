@@ -18,19 +18,18 @@ namespace AirTrafficMonitoring
             track.XCoordinate = Convert.ToInt32(array[1]);
             track.YCoordinate = Convert.ToInt32(array[2]);
             track.Altitude = Convert.ToInt32(array[3]);
-           // track.TimeStamp 
+            track.TimeStamp = CreateDateTime(array[4]);
            
 
             return track;
         }
 
-        //private DateTime CreateDateTime(string trackInfo)
-        //{
-            
-
-        //    DateTime parsedDate = DateTime.Parse(trackInfo);
-        //    return parsedDate;
-        //}
+        private DateTime CreateDateTime(string trackInfo)
+        {
+            //20151006213456789
+            DateTime parsedDate = DateTime.ParseExact(trackInfo, "yyyyMMddHHmmssfff",System.Globalization.CultureInfo.InvariantCulture);
+            return parsedDate;
+        }
 
 
     }

@@ -51,13 +51,14 @@ namespace AirTrafficMonitoringUnitTest
             Assert.That(_uut.CreateTrack(trackinfo).Altitude, Is.EqualTo(expectedAltitude));
         }
 
-        //[TestCase("ATR423;23046;16851;14000;20151006213456789", 2015, 10, 06, 21, 34, 56, 789)]
-        //public void CreateTrack_CreatesTrackWithDateTime_DateTimeIsCorrect(string trackinfo, int yyyy, int mm, int dd,
-        //    int hh, int min, int ss, int fff)
-        //{
-        //    DateTime dt = new DateTime(yyyy, mm, dd, hh, min, ss, fff);
-        //    Assert.That(_uut.CreateTrack(trackinfo).TimeStamp, Is.EqualTo(dt));
-        //}
+        [TestCase("ATR423;23046;16851;14000;20151006213456789", 2015, 10, 06, 21, 34, 56, 789)]
+        [TestCase("ATR423;23046;16851;14000;20161106213456789", 2016, 11, 06, 21, 34, 56, 789)]
+        public void CreateTrack_CreatesTrackWithDateTime_DateTimeIsCorrect(string trackinfo, int yyyy, int mm, int dd,
+            int hh, int min, int ss, int fff)
+        {
+            DateTime dt = new DateTime(yyyy, mm, dd, hh, min, ss, fff);
+            Assert.That(_uut.CreateTrack(trackinfo).TimeStamp, Is.EqualTo(dt));
+        }
 
     }
 }
