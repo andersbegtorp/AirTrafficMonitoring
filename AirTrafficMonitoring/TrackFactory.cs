@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirTrafficMonitoring
 {
-    public class TrackFactory
+    public class TrackFactory : ITrackFactory
     {
         public Track CreateTrack(string trackInfo)
         {

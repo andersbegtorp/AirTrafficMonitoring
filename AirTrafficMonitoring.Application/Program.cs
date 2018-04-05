@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AirTrafficMonitoring.Configuration.AirspaceConfiguration;
+using TransponderReceiver;
 
 namespace AirTrafficMonitoring.Application
 {
@@ -13,6 +14,13 @@ namespace AirTrafficMonitoring.Application
         {
 
             XMLAirspaceConfiguration.LoadAirspace(@"../../../AirspaceConfiguration.xml");
+
+            ITransponderReceiver transponderReceiver = TransponderReceiverFactory.CreateTransponderDataReceiver();
+            ITrackFactory tf = new TrackFactory();
+            IDisplay display = new ConsoleDisplay();
+            FlightController fc = new FlightController(transponderReceiver,tf,display);
+            
+            Console.ReadLine();
 
         }
     }
