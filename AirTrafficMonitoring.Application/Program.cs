@@ -18,7 +18,7 @@ namespace AirTrafficMonitoring.Application
             ITransponderReceiver transponderReceiver = TransponderReceiverFactory.CreateTransponderDataReceiver();
             ITrackFactory tf = new TrackFactory();
             IDisplay display = new ConsoleDisplay();
-            FlightController fc = new FlightController(transponderReceiver,tf,display);
+            TransponderDataReceiver fc = new TransponderDataReceiver(transponderReceiver,tf,display);
             
             Console.ReadLine();
 

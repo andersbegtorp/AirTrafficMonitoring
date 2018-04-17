@@ -26,11 +26,12 @@ namespace AirTrafficMonitoring
 
         private DateTime CreateDateTime(string trackInfo)
         {
-            //20151006213456789
             DateTime parsedDate = DateTime.ParseExact(trackInfo, "yyyyMMddHHmmssfff",System.Globalization.CultureInfo.InvariantCulture);
             return parsedDate;
         }
 
 
     }
+
+
 }

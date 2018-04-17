@@ -1,35 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using TransponderReceiver;
 
 namespace AirTrafficMonitoring
 {
-
-    public class FlightController
+    public class FlightController : IFlightController
     {
-        private ITrackFactory _trackFactory;
-        private IDisplay _display;
+        private List<Track> _oldestTracks;
+        private List<Track> _newestTracks;
+        private ITrackRemover _trackRemover;
+        private ITrackManagement _trackManagement;
+        public event EventHandler<FlightMovementEventArgs> FlightDataReady;
 
-        public FlightController(ITransponderReceiver transponderReceiver, ITrackFactory trackFactory, IDisplay display)
+        public FlightController(IAirspaceController airspaceController, ITrackRemover trackRemover, ITrackManagement trackManagement)
         {
-            _trackFactory = trackFactory;
-            _display = display;
-            transponderReceiver.TransponderDataReady += HandleTransponder;
+            airspaceController.TrackOutsideAirspace += HandleTrackOutsideAirspace;
+            airspaceController.TrackInAirspace += HandleTrackInsideAirspace;
+            _trackRemover = trackRemover;
+            _trackManagement = trackManagement;
         }
 
-        public void HandleTransponder(object o, RawTransponderDataEventArgs arg)
+        public void HandleTrackOutsideAirspace(object sender, TrackEventArgs arg)
         {
-            var list = arg.TransponderData.Select(track => _trackFactory.CreateTrack(track)).ToList();
-
-            foreach (var track in list)
+            if (_newestTracks.Any(x => x.Tag == arg.Track.Tag))
             {
-                _display.DisplayTrack(track);
+                _trackRemover.RemoveTrack(_newestTracks, arg.Track);
             }
 
+            if (_oldestTracks.Any(x => x.Tag == arg.Track.Tag))
+            {
+                _trackRemover.RemoveTrack(_oldestTracks, arg.Track);
+            }
+        }
+
+        public void HandleTrackInsideAirspace(object sender, TrackEventArgs arg)
+        {
+            _trackManagement.ManageTrack(_newestTracks, _oldestTracks, arg.Track);
+
+            var handler = FlightDataReady;
+            handler?.Invoke(this, new FlightMovementEventArgs(_oldestTracks, _newestTracks));
+        }
+    }
+
+    public class FlightManagement
+    {
+        public FlightManagement(IFlightController flightController)
+        {
+            flightController.FlightDataReady += HandleFlightsInAirspace;
+        }
+
+        public void HandleFlightsInAirspace(object sender, FlightMovementEventArgs arg)
+        {
+            
         }
     }
 }
