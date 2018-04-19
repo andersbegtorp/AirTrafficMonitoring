@@ -50,12 +50,14 @@
     <Compile Include="CompassCalculator.cs" />
     <Compile Include="ConsoleDisplay.cs" />
     <Compile Include="CourseAnalyzer.cs" />
+    <Compile Include="DistanceCalculator.cs" />
     <Compile Include="FlightManagement.cs" />
     <Compile Include="FlightMovementEventArgs.cs" />
     <Compile Include="IAirspaceController.cs" />
     <Compile Include="IAirspaceTrackChecker.cs" />
     <Compile Include="ICompassCalculator.cs" />
     <Compile Include="ICourseAnalyzer.cs" />
+    <Compile Include="IDistanceCalculator.cs" />
     <Compile Include="IFlightManagement.cs" />
     <Compile Include="Interfaces\IDisplay.cs" />
     <Compile Include="Interfaces\IFlightDataCalculator.cs" />
@@ -64,14 +66,20 @@
     <Compile Include="Interfaces\SeperationEventArgs.cs" />
     <Compile Include="Interfaces\TrackEventArgs.cs" />
     <Compile Include="Interfaces\TracksDataEventArgs.cs" />
+    <Compile Include="ITimeSpanCalculator.cs" />
     <Compile Include="ITrackManagement.cs" />
     <Compile Include="ITrackRemover.cs" />
+    <Compile Include="IVelocityAnalyzer.cs" />
+    <Compile Include="IVelocityCalculator.cs" />
+    <Compile Include="TimeSpanCalculator.cs" />
     <Compile Include="TrackManagement.cs" />
     <Compile Include="TrackRemover.cs" />
     <Compile Include="TransponderDataReceiver.cs" />
     <Compile Include="Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrackFactory.cs" />
+    <Compile Include="VelocityAnalyzer.cs" />
+    <Compile Include="VelocityCalculator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
