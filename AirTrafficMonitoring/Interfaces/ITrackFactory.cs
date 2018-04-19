@@ -1,4 +1,4 @@
-﻿namespace AirTrafficMonitoring
+﻿namespace AirTrafficMonitoring.Interfaces
 {
     public interface ITrackFactory
     {

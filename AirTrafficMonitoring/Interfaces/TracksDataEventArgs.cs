@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AirTrafficMonitoring
+namespace AirTrafficMonitoring.Interfaces
 {
     public class TracksDataEventArgs : EventArgs
     {

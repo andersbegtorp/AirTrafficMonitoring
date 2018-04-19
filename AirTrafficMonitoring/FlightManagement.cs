@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AirTrafficMonitoring.Interfaces;
 
 namespace AirTrafficMonitoring
 {
@@ -12,7 +13,8 @@ namespace AirTrafficMonitoring
         private ITrackManagement _trackManagement;
         public event EventHandler<FlightMovementEventArgs> FlightDataReady;
 
-        public FlightManagement(IAirspaceController airspaceController, ITrackRemover trackRemover, ITrackManagement trackManagement)
+        public FlightManagement(IAirspaceController airspaceController, ITrackRemover trackRemover,
+            ITrackManagement trackManagement)
         {
             airspaceController.TrackOutsideAirspace += HandleTrackOutsideAirspace;
             airspaceController.TrackInAirspace += HandleTrackInsideAirspace;
@@ -39,19 +41,6 @@ namespace AirTrafficMonitoring
 
             var handler = FlightDataReady;
             handler?.Invoke(this, new FlightMovementEventArgs(_oldestTracks, _newestTracks));
-        }
-    }
-
-    public class FlightController
-    {
-        public FlightController(IFlightManagement flightManagement)
-        {
-            flightManagement.FlightDataReady += HandleFlightsInAirspace;
-        }
-
-        public void HandleFlightsInAirspace(object sender, FlightMovementEventArgs arg)
-        {
-            
         }
     }
 }

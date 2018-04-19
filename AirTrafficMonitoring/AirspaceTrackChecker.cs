@@ -1,4 +1,6 @@
-﻿namespace AirTrafficMonitoring
+﻿using AirTrafficMonitoring.Interfaces;
+
+namespace AirTrafficMonitoring
 {
     public class AirspaceTrackChecker : IAirspaceTrackChecker
     {

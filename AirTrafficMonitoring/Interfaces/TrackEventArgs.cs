@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AirTrafficMonitoring
+namespace AirTrafficMonitoring.Interfaces
 {
     public class TrackEventArgs : EventArgs
     {

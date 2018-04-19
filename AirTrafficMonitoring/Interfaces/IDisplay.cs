@@ -1,9 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AirTrafficMonitoring
+﻿namespace AirTrafficMonitoring.Interfaces
 {
     public interface IDisplay
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirTrafficMonitoring.Interfaces;
 
 namespace AirTrafficMonitoring
 {
@@ -31,5 +32,9 @@ namespace AirTrafficMonitoring
                 }
             }
         }
-    } 
+    }
+
+    public interface ICollisionAnalyzer
+    {
+    }
 }
