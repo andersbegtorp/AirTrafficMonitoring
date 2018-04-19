@@ -2,9 +2,9 @@
 
 namespace AirTrafficMonitoring
 {
-    public class FlightController
+    public class FlightAnalyzer
     {
-        public FlightController(IFlightManagement flightManagement)
+        public FlightAnalyzer(IFlightManagement flightManagement)
         {
             flightManagement.FlightDataReady += HandleFlightsInAirspace;
         }
