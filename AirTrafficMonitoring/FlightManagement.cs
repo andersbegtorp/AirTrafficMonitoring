@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace AirTrafficMonitoring
 {
-    public class FlightController : IFlightController
+    public class FlightManagement : IFlightManagement
     {
         private List<Track> _oldestTracks;
         private List<Track> _newestTracks;
@@ -12,7 +12,7 @@ namespace AirTrafficMonitoring
         private ITrackManagement _trackManagement;
         public event EventHandler<FlightMovementEventArgs> FlightDataReady;
 
-        public FlightController(IAirspaceController airspaceController, ITrackRemover trackRemover, ITrackManagement trackManagement)
+        public FlightManagement(IAirspaceController airspaceController, ITrackRemover trackRemover, ITrackManagement trackManagement)
         {
             airspaceController.TrackOutsideAirspace += HandleTrackOutsideAirspace;
             airspaceController.TrackInAirspace += HandleTrackInsideAirspace;
@@ -42,11 +42,11 @@ namespace AirTrafficMonitoring
         }
     }
 
-    public class FlightManagement
+    public class FlightController
     {
-        public FlightManagement(IFlightController flightController)
+        public FlightController(IFlightManagement flightManagement)
         {
-            flightController.FlightDataReady += HandleFlightsInAirspace;
+            flightManagement.FlightDataReady += HandleFlightsInAirspace;
         }
 
         public void HandleFlightsInAirspace(object sender, FlightMovementEventArgs arg)

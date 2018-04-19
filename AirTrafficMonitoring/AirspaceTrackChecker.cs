@@ -1,13 +1,13 @@
 ﻿namespace AirTrafficMonitoring
 {
-    public class AirspaceManagement : IAirspaceManagement
+    public class AirspaceTrackChecker : IAirspaceTrackChecker
     {
         private Airspace _currentAirspace;
-        public AirspaceManagement(Airspace currentAirspace)
+        public AirspaceTrackChecker(Airspace currentAirspace)
         {
             _currentAirspace = currentAirspace;
         }
-        public bool AirSpaceTrackChecker(Track track)
+        public bool CheckTrack(Track track)
         {
             if (track.Altitude <= _currentAirspace.LowestAltitude || track.Altitude >= _currentAirspace.HighestAltitude)
                 return false;

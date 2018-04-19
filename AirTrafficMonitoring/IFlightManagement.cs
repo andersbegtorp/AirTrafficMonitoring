@@ -2,7 +2,7 @@
 
 namespace AirTrafficMonitoring
 {
-    public interface IFlightController
+    public interface IFlightManagement
     {
         event EventHandler<FlightMovementEventArgs> FlightDataReady;
     }

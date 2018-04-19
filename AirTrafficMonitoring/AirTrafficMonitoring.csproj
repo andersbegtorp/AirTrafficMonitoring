@@ -45,14 +45,14 @@
   <ItemGroup>
     <Compile Include="Airspace.cs" />
     <Compile Include="AirspaceController.cs" />
-    <Compile Include="AirspaceManagement.cs" />
+    <Compile Include="AirspaceTrackChecker.cs" />
     <Compile Include="CompassCalculator.cs" />
     <Compile Include="ConsoleDisplay.cs" />
-    <Compile Include="FlightController.cs" />
+    <Compile Include="FlightManagement.cs" />
     <Compile Include="FlightMovementEventArgs.cs" />
     <Compile Include="IAirspaceController.cs" />
-    <Compile Include="IAirspaceManagement.cs" />
-    <Compile Include="IFlightController.cs" />
+    <Compile Include="IAirspaceTrackChecker.cs" />
+    <Compile Include="IFlightManagement.cs" />
     <Compile Include="Interfaces\IDisplay.cs" />
     <Compile Include="Interfaces\IFlightDataCalculator.cs" />
     <Compile Include="Interfaces\ITrackFactory.cs" />
