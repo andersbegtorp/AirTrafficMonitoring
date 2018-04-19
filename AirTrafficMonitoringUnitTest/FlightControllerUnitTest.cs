@@ -16,21 +16,19 @@ namespace AirTrafficMonitoringUnitTest
         private TransponderDataReceiver _uut;
         private ITransponderReceiver _fakeTransponderReceiver;
         private ITrackFactory _fakeTrackFactory;
-        private IDisplay _fakeDisplay;
 
         [SetUp]
         public void SetUp()
         {
             _fakeTransponderReceiver = Substitute.For<ITransponderReceiver>();
             _fakeTrackFactory = Substitute.For<ITrackFactory>();
-            _fakeDisplay = Substitute.For<IDisplay>();
-            _uut = new TransponderDataReceiver(_fakeTransponderReceiver, _fakeTrackFactory, _fakeDisplay);
+            _uut = new TransponderDataReceiver(_fakeTransponderReceiver, _fakeTrackFactory);
         }
 
         [TestCase(2)]
         [TestCase(7)]
         [TestCase(14)]
-        public void HandleTransponder_CreatesNumberOfTracks_CorrectNumberOfTracks(int numberOfTracks)
+        public void HandleTransponderData_CreatesNumberOfTracks_CorrectNumberOfTracks(int numberOfTracks)
         {
             var list = new List<string>();
             for (int i = 0; i < numberOfTracks; i++)
@@ -39,24 +37,55 @@ namespace AirTrafficMonitoringUnitTest
             }
             RawTransponderDataEventArgs e = new RawTransponderDataEventArgs(list);
             _fakeTransponderReceiver.TransponderDataReady += Raise.EventWith(e);
+
             _fakeTrackFactory.Received(numberOfTracks).CreateTrack(Arg.Any<string>());
 
         }
 
         [TestCase(1)]
-        [TestCase(4)]
-        [TestCase(9)]
-        public void HandleTransponder_DisplayRecievesCalls_CorrectNumberOfCalls(int numberOfTracks)
+        [TestCase(2)]
+        [TestCase(22)]
+        public void HandleTransponderData_RaisesEventWithTracks_EventIsRaisedWithTracks(int numberOfTracks)
         {
+            List<Track> tracks = new List<Track>();
+            //Arrange
             var list = new List<string>();
             for (int i = 0; i < numberOfTracks; i++)
             {
                 list.Add("");
             }
-            _fakeTrackFactory.CreateTrack(Arg.Any<string>()).Returns(new Track());
+
             RawTransponderDataEventArgs e = new RawTransponderDataEventArgs(list);
+
+            Track trackToBeReturned = new Track();
+            _fakeTrackFactory.CreateTrack(Arg.Any<string>()).Returns(trackToBeReturned);
+
+            _uut.TrackDataReady += (sender, args) => tracks = args.Tracks;
+
+            //Act
             _fakeTransponderReceiver.TransponderDataReady += Raise.EventWith(e);
-            _fakeDisplay.Received(numberOfTracks).DisplayTrack(Arg.Any<Track>());
+
+            //Assert
+            Assert.That(tracks.Count, Is.EqualTo(numberOfTracks));
+        }
+
+        [Test]
+        public void HandleTransponderData_ZeroTracksFromTransponder_EventIsNotRaised()
+        {
+            var list = new List<string>();
+            RawTransponderDataEventArgs e = new RawTransponderDataEventArgs(list);
+
+            Track trackToBeReturned = new Track();
+            _fakeTrackFactory.CreateTrack(Arg.Any<string>()).Returns(trackToBeReturned);
+
+            bool wasRaised = false;
+            _uut.TrackDataReady += (sender, args) => wasRaised = true;
+
+            //Act
+            _fakeTransponderReceiver.TransponderDataReady += Raise.EventWith(e);
+
+            //Assert
+            Assert.That(wasRaised, Is.False);
         }
     }
 }
