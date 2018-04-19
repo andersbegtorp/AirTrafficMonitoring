@@ -1,23 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AirTrafficMonitoring
 {
-    public class CompassCalculator
+    public class CompassCalculator : ICompassCalculator
     {
-        public double Calculate(int x1, int x2, int y1, int y2)
+        public double CalculateCourse(double x1, double x2, double y1, double y2)
         {
             var deltaX = x2 - x1;
             var deltaY = y2 - y1;
-            var rad = Math.Atan2(deltaY, deltaX);
 
-            var deg = rad * (180 / Math.PI);
+            var atan = Math.Atan(deltaY / deltaX) / Math.PI * 180;
+            if (deltaX < 0 || deltaY < 0)
+                atan += 180;
+            if (deltaX > 0 && deltaY < 0)
+                atan -= 180;
+            if (atan < 0)
+                atan += 360;
 
-            return deg;
-
+            return atan % 360;
         }
     }
 }

@@ -48,10 +48,13 @@
     <Compile Include="AirspaceTrackChecker.cs" />
     <Compile Include="CompassCalculator.cs" />
     <Compile Include="ConsoleDisplay.cs" />
+    <Compile Include="CourseAnalyzer.cs" />
     <Compile Include="FlightManagement.cs" />
     <Compile Include="FlightMovementEventArgs.cs" />
     <Compile Include="IAirspaceController.cs" />
     <Compile Include="IAirspaceTrackChecker.cs" />
+    <Compile Include="ICompassCalculator.cs" />
+    <Compile Include="ICourseAnalyzer.cs" />
     <Compile Include="IFlightManagement.cs" />
     <Compile Include="Interfaces\IDisplay.cs" />
     <Compile Include="Interfaces\IFlightDataCalculator.cs" />
