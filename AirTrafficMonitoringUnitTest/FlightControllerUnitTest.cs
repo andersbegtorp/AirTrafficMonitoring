@@ -24,7 +24,7 @@ namespace AirTrafficMonitoringUnitTest
             _fakeTransponderReceiver = Substitute.For<ITransponderReceiver>();
             _fakeTrackFactory = Substitute.For<ITrackFactory>();
             _fakeDisplay = Substitute.For<IDisplay>();
-            _uut = new TransponderDataReceiver(_fakeTransponderReceiver, _fakeTrackFactory, _fakeDisplay);
+            _uut = new TransponderDataReceiver(_fakeTransponderReceiver, _fakeTrackFactory);
         }
 
         [TestCase(2)]
