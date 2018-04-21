@@ -12,7 +12,7 @@ using TransponderReceiver;
 namespace AirTrafficMonitoringUnitTest
 {
     [TestFixture]
-    public class FlightControllerUnitTest
+    public class TransponderDataReceiverUnitTest
     {
         private TransponderDataReceiver _uut;
         private ITransponderReceiver _fakeTransponderReceiver;
