@@ -5,11 +5,17 @@ namespace AirTrafficMonitoring
 {
     public class ConsoleDisplay : IDisplay
     {
-        public void DisplayTrack(Track track)
-        {
-            Console.WriteLine("Tag: " + track.Tag + " X: " + track.XCoordinate + " Y: " + track.YCoordinate +
-                              " Altitude: " + track.Altitude + " Time stamp: " + track.TimeStamp);
 
+        public ConsoleDisplay(IFlightAnalyzer flightAnalyzer)
+        {
+            flightAnalyzer.TracksAnalyzedEvent += DisplayTracks;
+        }
+        public void DisplayTracks(object o, TracksDataEventArgs arg)
+        {
+            foreach (var track in arg.Tracks)
+            {
+                Console.WriteLine(track.ToString());
+            }
         }
     }
 }
