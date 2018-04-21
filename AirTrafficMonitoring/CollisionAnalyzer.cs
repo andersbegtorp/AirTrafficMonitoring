@@ -36,5 +36,6 @@ namespace AirTrafficMonitoring
 
     public interface ICollisionAnalyzer
     {
+        void AnalyzeCollision(List<Track> tracks);
     }
 }

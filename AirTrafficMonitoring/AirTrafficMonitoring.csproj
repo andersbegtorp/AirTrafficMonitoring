@@ -52,8 +52,10 @@
     <Compile Include="CourseAnalyzer.cs" />
     <Compile Include="DistanceCalculator.cs" />
     <Compile Include="FlightAnalyzer.cs" />
+    <Compile Include="FlightController.cs" />
     <Compile Include="FlightManagement.cs" />
     <Compile Include="FlightMovementEventArgs.cs" />
+    <Compile Include="IFlightController.cs" />
     <Compile Include="Interfaces\IAirspaceController.cs" />
     <Compile Include="Interfaces\IAirspaceTrackChecker.cs" />
     <Compile Include="Interfaces\ICompassCalculator.cs" />
