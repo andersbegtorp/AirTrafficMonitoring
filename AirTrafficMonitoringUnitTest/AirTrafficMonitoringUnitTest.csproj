@@ -61,6 +61,8 @@
   <ItemGroup>
     <Compile Include="AirspaceControllerUnitTest.cs" />
     <Compile Include="AirspaceTracCheckerUnitTest.cs" />
+    <Compile Include="AltitudeDistanceCalculatorUnitTest.cs" />
+    <Compile Include="CollisionAnalyzerUnitTest.cs" />
     <Compile Include="DistanceCalculatorUnitTest.cs" />
     <Compile Include="CompassCalculatorUnitTest.cs" />
     <Compile Include="CourseAnalyserUnitTest.cs" />
