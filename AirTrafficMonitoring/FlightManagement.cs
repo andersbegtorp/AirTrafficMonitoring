@@ -20,6 +20,8 @@ namespace AirTrafficMonitoring
             airspaceController.TrackInAirspace += HandleTrackInsideAirspace;
             _trackRemover = trackRemover;
             _trackManagement = trackManagement;
+            _newestTracks = new List<Track>();
+            _oldestTracks = new List<Track>();
         }
 
         public void HandleTrackOutsideAirspace(object sender, TrackEventArgs arg)

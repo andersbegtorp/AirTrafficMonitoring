@@ -2,6 +2,6 @@
 {
     public interface IDisplay
     {
-        void DisplayTrack(Track track);
+        void DisplayTracks(object o, TracksDataEventArgs arg);
     }
 }

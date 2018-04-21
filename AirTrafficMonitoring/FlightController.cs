@@ -1,4 +1,7 @@
-﻿using AirTrafficMonitoring.Interfaces;
+
+using System;
+using AirTrafficMonitoring.Interfaces;
+
 
 namespace AirTrafficMonitoring
 {
@@ -13,7 +16,22 @@ namespace AirTrafficMonitoring
         }
         public void HandleFlightsInAirspace(object sender, FlightMovementEventArgs arg)
         {
+
             _collisionAnalyzer.AnalyzeCollision(arg.NewestTracks);
+
+            for (int i = 0; i < arg.NewestTracks.Count - 1; i++)
+            {
+                for (int j = i + 1; j < arg.NewestTracks.Count; j++)
+                {
+                    if (_collisionAnalyzer.AnalyzeCollision(arg.NewestTracks[i], arg.NewestTracks[j]))
+                    {
+                        var Handler = SeperationEvent;
+                        Handler?.Invoke(this, new SeperationEventArgs("Timestamp: " + arg.NewestTracks[i].TimeStamp.ToString() + "Flight: "
+                                                                      + arg.NewestTracks[i].Tag + " is on collision with flight: " + arg.NewestTracks[j].Tag));
+                    }
+                }
+            }
+
         }
     }
 }

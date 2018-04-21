@@ -9,33 +9,25 @@ namespace AirTrafficMonitoring
 {
     public class CollisionAnalyzer : ICollisionAnalyzer
     {
-        private IDistanceCalculator _distanceCalculator;
-        public event EventHandler<SeperationEventArgs> SeperationEvent;
+        private IDistanceCalculator _horizontaDistanceCalculator;
+        private IAltitudeDistanceCalculator _altitudeDistanceCalculator;
 
-        public CollisionAnalyzer(IDistanceCalculator distanceCalculator)
+        public CollisionAnalyzer(IDistanceCalculator horizontaDistanceCalculator, IAltitudeDistanceCalculator altitudeDistanceCalculator)
         {
-            _distanceCalculator = distanceCalculator;
+            _horizontaDistanceCalculator = horizontaDistanceCalculator;
+            _altitudeDistanceCalculator = altitudeDistanceCalculator;
         }
-        public void AnalyzeCollision(List<Track> tracks)
+
+        public bool AnalyzeCollision(Track flight1, Track flight2)
         {
-            for (int i = 0; i < tracks.Count-1; i++)
+
+            if (_horizontaDistanceCalculator.CalculateDistance(flight1.XCoordinate,flight2.XCoordinate,
+                   flight1.YCoordinate, flight2.YCoordinate) < 5000 &&
+                _altitudeDistanceCalculator.CalculateAltitudeDistance(flight1.Altitude, flight2.Altitude) < 300)
             {
-                for (int j = i+1; j < tracks.Count; j++)
-                {
-                    if (_distanceCalculator.CalculateDistance(tracks[i].XCoordinate, tracks[j].XCoordinate,
-                            tracks[i].YCoordinate, tracks[j].YCoordinate) < 5000 && Math.Abs(tracks[i].Altitude - tracks[j].Altitude) <300)
-                    {
-                        var Handler = SeperationEvent;
-                        Handler?.Invoke(this,new SeperationEventArgs("Timestamp: " + tracks[i].TimeStamp.ToString() + "Flight: " + tracks[i].Tag + " is on collision with flight: " + tracks[j].Tag));
-                    }
-
-                }
+                return true;
             }
+            return false;
         }
-    }
-
-    public interface ICollisionAnalyzer
-    {
-        void AnalyzeCollision(List<Track> tracks);
     }
 }

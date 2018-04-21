@@ -1,13 +1,11 @@
-using System;
+﻿using System;
 using AirTrafficMonitoring.Interfaces;
 
 namespace AirTrafficMonitoring
-
 {
-    public interface IFlightController
+    public interface IFlightAnalyzer
     {
         void HandleFlightsInAirspace(object sender, FlightMovementEventArgs arg);
-        event EventHandler<SeperationEventArgs> SeperationEvent;
-
+        event EventHandler<TracksDataEventArgs> TracksAnalyzedEvent;
     }
 }

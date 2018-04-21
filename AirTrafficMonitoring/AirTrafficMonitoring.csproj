@@ -46,6 +46,7 @@
     <Compile Include="Airspace.cs" />
     <Compile Include="AirspaceController.cs" />
     <Compile Include="AirspaceTrackChecker.cs" />
+    <Compile Include="AltitudeDistanceCalculator.cs" />
     <Compile Include="CollisionAnalyzer.cs" />
     <Compile Include="CompassCalculator.cs" />
     <Compile Include="ConsoleDisplay.cs" />
@@ -55,6 +56,9 @@
     <Compile Include="FlightController.cs" />
     <Compile Include="FlightManagement.cs" />
     <Compile Include="FlightMovementEventArgs.cs" />
+    <Compile Include="IAltitudeDistanceCalculator.cs" />
+    <Compile Include="ICollisionAnalyzer.cs" />
+    <Compile Include="IFlightAnalyzer.cs" />
     <Compile Include="IFlightController.cs" />
     <Compile Include="Interfaces\IAirspaceController.cs" />
     <Compile Include="Interfaces\IAirspaceTrackChecker.cs" />
