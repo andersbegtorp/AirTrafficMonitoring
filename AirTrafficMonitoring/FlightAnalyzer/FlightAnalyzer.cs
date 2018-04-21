@@ -7,7 +7,7 @@ namespace AirTrafficMonitoring
     {
         private ICourseAnalyzer _courseAnalyzer;
         private IVelocityAnalyzer _velocityAnalyzer;
-        public event EventHandler<TracksDataEventArgs> TracksAnalyzedEvent;
+        public event EventHandler<TrackLogEventArgs> TracksAnalyzedEvent;
 
         public FlightAnalyzer(IFlightManagement flightManagement, ICourseAnalyzer courseAnalyzer, IVelocityAnalyzer velocityAnalyzer)
         {
@@ -20,8 +20,12 @@ namespace AirTrafficMonitoring
         {
             _courseAnalyzer.AnalyzeCourse(arg.OldestTracks, arg.NewestTracks);
             _velocityAnalyzer.AnalyzeVelocity(arg.OldestTracks,arg.NewestTracks);
-            var Handler = TracksAnalyzedEvent;
-            Handler?.Invoke(this,new TracksDataEventArgs(arg.NewestTracks));
+
+            foreach (var track in arg.NewestTracks)
+            {
+                var Handler = TracksAnalyzedEvent;
+                Handler?.Invoke(this, new TrackLogEventArgs(track.ToString()));
+            }
         }
     }
 }

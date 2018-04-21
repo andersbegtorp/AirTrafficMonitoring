@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,9 +42,13 @@ namespace AirTrafficMonitoring.Application
             IFlightAnalyzer flightAnalyzer = new FlightAnalyzer(flightManagement,courseAnalyzer,velocityAnalyzer);
             IAltitudeDistanceCalculator altitudeDistanceCalculator = new AltitudeDistanceCalculator();
             ICollisionAnalyzer collisionAnalyzer = new CollisionAnalyzer(distanceCalculator,altitudeDistanceCalculator);
-            IFlightController flightController = new FlightController(flightManagement,collisionAnalyzer);
-            IDisplay display = new ConsoleDisplay(flightAnalyzer);
-
+            ISeparationStringBuilder separationStringBuilder = new SeparationStringBuilder();
+            IFlightController flightController = new FlightController(flightManagement,collisionAnalyzer,separationStringBuilder );
+            IDisplay display = new ConsoleDisplay(flightAnalyzer, flightController);
+            IFileWriter fileWriter = new FileWriter();
+            var currentDirectory = Directory.GetCurrentDirectory();
+            var path = Path.Combine(currentDirectory, "SeparationLog.txt");
+            ISeparationEventLogger logger = new Logger(flightController, path, fileWriter );
             
             Console.ReadLine();
 

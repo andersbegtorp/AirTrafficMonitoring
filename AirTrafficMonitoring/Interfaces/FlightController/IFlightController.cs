@@ -7,7 +7,7 @@ namespace AirTrafficMonitoring
     public interface IFlightController
     {
         void HandleFlightsInAirspace(object sender, FlightMovementEventArgs arg);
-        event EventHandler<SeperationEventArgs> SeperationEvent;
+        event EventHandler<SeparationEventArgs> SeperationEvent;
 
     }
 }

@@ -8,13 +8,15 @@ namespace AirTrafficMonitoring
     public class FlightController : IFlightController
     {
         private ICollisionAnalyzer _collisionAnalyzer;
+        private ISeparationStringBuilder _separationStringBuilder;
 
-        public event EventHandler<SeperationEventArgs> SeperationEvent;
+        public event EventHandler<SeparationEventArgs> SeperationEvent;
 
-        public FlightController(IFlightManagement flightManagement, ICollisionAnalyzer collisionAnalyzer)
+        public FlightController(IFlightManagement flightManagement, ICollisionAnalyzer collisionAnalyzer, ISeparationStringBuilder separationStringBuilder )
         {
             flightManagement.FlightDataReady += HandleFlightsInAirspace;
             _collisionAnalyzer = collisionAnalyzer;
+            _separationStringBuilder = separationStringBuilder;
         }
         public void HandleFlightsInAirspace(object sender, FlightMovementEventArgs arg)
         {
@@ -25,8 +27,9 @@ namespace AirTrafficMonitoring
                     if (_collisionAnalyzer.AnalyzeCollision(arg.NewestTracks[i], arg.NewestTracks[j]))
                     {
                         var Handler = SeperationEvent;
-                        Handler?.Invoke(this, new SeperationEventArgs("Timestamp: " + arg.NewestTracks[i].TimeStamp.ToString() + "Flight: "
-                                                                      + arg.NewestTracks[i].Tag + " is on collision with flight: " + arg.NewestTracks[j].Tag));
+                        Handler?.Invoke(this,
+                            new SeparationEventArgs(
+                                _separationStringBuilder.BuildSeperationNote(arg.NewestTracks[i], arg.NewestTracks[j])));
                     }
                 }
             }
