@@ -19,7 +19,7 @@ namespace AirTrafficMonitoring
 
             if (angle < 0)
                 angle = 360 + angle;
-            return angle;
+            return Math.Round(angle,1);
         }
     }
 }

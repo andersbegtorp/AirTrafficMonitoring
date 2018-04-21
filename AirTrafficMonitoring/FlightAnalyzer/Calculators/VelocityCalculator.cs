@@ -31,7 +31,7 @@ namespace AirTrafficMonitoring
 
         private double CalculateVelocity(double distance, TimeSpan time)
         {
-            return distance / time.TotalSeconds;
+            return Math.Round((distance / time.TotalSeconds), 2);
         }
     }
 

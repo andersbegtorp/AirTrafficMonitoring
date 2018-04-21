@@ -2,11 +2,11 @@
 
 namespace AirTrafficMonitoring.Interfaces
 {
-    public class SeperationEventArgs : EventArgs
+    public class SeparationEventArgs : EventArgs
     {
         public string SeperationNote { get; }
 
-        public SeperationEventArgs(string seperationNote)
+        public SeparationEventArgs(string seperationNote)
         {
             SeperationNote = seperationNote;
         }

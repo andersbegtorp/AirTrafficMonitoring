@@ -49,6 +49,10 @@
     <Compile Include="FlightController\AltitudeDistanceCalculator.cs" />
     <Compile Include="FlightController\CollisionAnalyzer.cs" />
     <Compile Include="FlightAnalyzer\Calculators\CompassCalculator.cs" />
+    <Compile Include="Interfaces\Logger\ISeparationStringBuilder.cs" />
+    <Compile Include="Logger\SeparationStringBuilder.cs" />
+    <Compile Include="Interfaces\EventArgs\TrackLogEventArgs.cs" />
+    <Compile Include="Interfaces\Logger\ISeparationEventLogger.cs" />
     <Compile Include="Logger\ConsoleDisplay.cs" />
     <Compile Include="FlightAnalyzer\CourseAnalyzer.cs" />
     <Compile Include="FlightAnalyzer\Calculators\DistanceCalculator.cs" />
@@ -69,7 +73,7 @@
     <Compile Include="Interfaces\Logger\IDisplay.cs" />
     <Compile Include="Interfaces\Factory\ITrackFactory.cs" />
     <Compile Include="Interfaces\Transponder\ITransponderDataReciever.cs" />
-    <Compile Include="Interfaces\EventArgs\SeperationEventArgs.cs" />
+    <Compile Include="Interfaces\EventArgs\SeparationEventArgs.cs" />
     <Compile Include="Interfaces\EventArgs\TrackEventArgs.cs" />
     <Compile Include="Interfaces\EventArgs\TracksDataEventArgs.cs" />
     <Compile Include="Interfaces\FlightAnalyzer\Calculators\ITimeSpanCalculator.cs" />
@@ -80,6 +84,9 @@
     <Compile Include="FlightAnalyzer\Calculators\TimeSpanCalculator.cs" />
     <Compile Include="FlightManagement\TrackManagement.cs" />
     <Compile Include="FlightManagement\TrackRemover.cs" />
+    <Compile Include="Logger\FileWriter.cs" />
+    <Compile Include="Interfaces\Logger\IFileWriter.cs" />
+    <Compile Include="Logger\Logger.cs" />
     <Compile Include="Transponder\TransponderDataReceiver.cs" />
     <Compile Include="DataTransferObjects\Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
