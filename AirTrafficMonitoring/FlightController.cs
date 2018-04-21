@@ -9,6 +9,8 @@ namespace AirTrafficMonitoring
     {
         private ICollisionAnalyzer _collisionAnalyzer;
 
+        public event EventHandler<SeperationEventArgs> SeperationEvent;
+
         public FlightController(IFlightManagement flightManagement, ICollisionAnalyzer collisionAnalyzer)
         {
             flightManagement.FlightDataReady += HandleFlightsInAirspace;
@@ -16,9 +18,6 @@ namespace AirTrafficMonitoring
         }
         public void HandleFlightsInAirspace(object sender, FlightMovementEventArgs arg)
         {
-
-            _collisionAnalyzer.AnalyzeCollision(arg.NewestTracks);
-
             for (int i = 0; i < arg.NewestTracks.Count - 1; i++)
             {
                 for (int j = i + 1; j < arg.NewestTracks.Count; j++)
@@ -33,5 +32,6 @@ namespace AirTrafficMonitoring
             }
 
         }
+
     }
 }
