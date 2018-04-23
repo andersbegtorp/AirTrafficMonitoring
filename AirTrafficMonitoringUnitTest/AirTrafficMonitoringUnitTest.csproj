@@ -64,6 +64,10 @@
     <Compile Include="DistanceCalculatorUnitTest.cs" />
     <Compile Include="CompassCalculatorUnitTest.cs" />
     <Compile Include="CourseAnalyserUnitTest.cs" />
+    <Compile Include="FlightManagementUnitTest.cs" />
+    <Compile Include="TrackManagementMock.cs" />
+    <Compile Include="TrackManagementUnitTest.cs" />
+    <Compile Include="TrackRemoverUnitTest.cs" />
     <Compile Include="TransponderDataReceiverUnitTest.cs" />
     <Compile Include="TimeSpanCalculatorUnitTest.cs" />
     <Compile Include="TrackFactoryUnitTest.cs" />
