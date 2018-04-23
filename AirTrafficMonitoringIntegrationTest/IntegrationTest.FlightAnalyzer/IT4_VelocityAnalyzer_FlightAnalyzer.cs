@@ -40,7 +40,7 @@ namespace AirTrafficMonitoringIntegrationTest.IntegrationTest.FlightAnalyzer
         [TestCase(4, 100, 45000, 30000, 15000, 25000, 180.27)]
         [TestCase(1, 12, 0, 0, 0, 0, 0)]
         [TestCase(12, 2, 25000, 25005, 13000, 13010, 5.59)]
-        public void HandleFlightsInAirspace_AnalyzesVelocityForOneMatchingTrack_VelocityIsCorrect(int numberOfFlightsInNewestTracks, int secondsBetweenTimestamps, int firstXCoordinate, int secondXCoordinate, int firstYCoordinate, int secondYCoordinate, double expectedVelocity)
+        public void HandleFlightsInAirspace_AnalyzesVelocityForOneMatchingTrack_VelocityIsCorrect(int numberOfFlightsInNewestTracks, int secondsBetweenTimestamps, double firstXCoordinate, double secondXCoordinate, double firstYCoordinate, double secondYCoordinate, double expectedVelocity)
         {
             List<Track> OldestTracks = new List<Track>();
             List<Track> NewestTracks = new List<Track>();
