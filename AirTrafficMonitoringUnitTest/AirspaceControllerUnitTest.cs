@@ -17,13 +17,12 @@ namespace AirTrafficMonitoringUnitTest
         private AirspaceController _uut;
         private IAirspaceTrackChecker _fakeAirspaceTrackChecker;
         private ITransponderDataReciever _fakeTransponderDataReciever;
-        private int _nEventsReceived;
-
+       
         [SetUp]
         public void SetUp()
         {
 
-            _nEventsReceived = 0;
+            
             _fakeAirspaceTrackChecker = Substitute.For<IAirspaceTrackChecker>();
             _fakeTransponderDataReciever = Substitute.For<ITransponderDataReciever>();
             _uut = new AirspaceController(_fakeTransponderDataReciever, _fakeAirspaceTrackChecker);
