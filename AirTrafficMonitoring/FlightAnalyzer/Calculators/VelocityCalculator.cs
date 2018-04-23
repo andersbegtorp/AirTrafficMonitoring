@@ -24,7 +24,6 @@ namespace AirTrafficMonitoring.FlightAnalyzer.Calculators
 
         }
 
-
         private double Calculate(double distance, TimeSpan time) 
         {
             return Math.Round((distance / time.TotalSeconds), 2);
