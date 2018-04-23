@@ -1,9 +1,9 @@
 ﻿using System;
+using AirTrafficMonitoring.CollisionController;
 using AirTrafficMonitoring.DataTransferObjects;
-using AirTrafficMonitoring.Logger;
 using NUnit.Framework;
 
-namespace AirTrafficMonitoringUnitTest.Logger
+namespace AirTrafficMonitoringUnitTest.CollisionController
 {
     [TestFixture]
     public class SeparationStringBuilderUnitTest

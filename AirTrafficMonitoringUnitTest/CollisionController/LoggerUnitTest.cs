@@ -4,14 +4,14 @@ using AirTrafficMonitoring.Interfaces.Logger;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace AirTrafficMonitoringUnitTest.Logger
+namespace AirTrafficMonitoringUnitTest.CollisionController
 {
     [TestFixture]
     public class LoggerUnitTest
     {
         private IFileWriter _fakeFileWriter;
         private ICollisionController _fakeCollisionController;
-        private AirTrafficMonitoring.Logger.Logger _uut;
+        private AirTrafficMonitoring.CollisionController.Logger _uut;
 
         [SetUp]
         public void SetUp()
@@ -25,7 +25,7 @@ namespace AirTrafficMonitoringUnitTest.Logger
 
         public void LogSeparationEvent_CallsFileWriter_PathIsCorrect(string path)
         {
-            _uut = new AirTrafficMonitoring.Logger.Logger(_fakeCollisionController, path, _fakeFileWriter);
+            _uut = new AirTrafficMonitoring.CollisionController.Logger(_fakeCollisionController, path, _fakeFileWriter);
 
             _fakeCollisionController.SeperationEvent += Raise.EventWith(new SeparationEventArgs(""));
 
@@ -36,7 +36,7 @@ namespace AirTrafficMonitoringUnitTest.Logger
         [TestCase("Note note")]
         public void LogSeparationEvent_CallsFileWriter_NoteIsCorrect(string note)
         {
-            _uut = new AirTrafficMonitoring.Logger.Logger(_fakeCollisionController, "", _fakeFileWriter);
+            _uut = new AirTrafficMonitoring.CollisionController.Logger(_fakeCollisionController, "", _fakeFileWriter);
 
             _fakeCollisionController.SeperationEvent += Raise.EventWith(new SeparationEventArgs(note));
 

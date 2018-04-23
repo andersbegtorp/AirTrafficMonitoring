@@ -2,7 +2,7 @@
 using AirTrafficMonitoring.Interfaces.EventArgs;
 using AirTrafficMonitoring.Interfaces.Logger;
 
-namespace AirTrafficMonitoring.Logger
+namespace AirTrafficMonitoring.CollisionController
 {
     public class Logger : ISeparationEventLogger
     {

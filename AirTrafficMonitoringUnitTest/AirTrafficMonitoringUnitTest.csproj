@@ -72,8 +72,8 @@
     <Compile Include="FlightManagement\TrackManagementUnitTest.cs" />
     <Compile Include="FlightManagement\TrackRemoverUnitTest.cs" />
     <Compile Include="CollisionController\CollisionControllerUnitTest.cs" />
-    <Compile Include="Logger\LoggerUnitTest.cs" />
-    <Compile Include="Logger\SeparationStringBuilderUnitTest.cs" />
+    <Compile Include="CollisionController\LoggerUnitTest.cs" />
+    <Compile Include="CollisionController\SeparationStringBuilderUnitTest.cs" />
     <Compile Include="Transponder\TransponderDataReceiverUnitTest.cs" />
     <Compile Include="FlightAnalyzer\Calculators\TimeSpanCalculatorUnitTest.cs" />
     <Compile Include="Factory\TrackFactoryUnitTest.cs" />

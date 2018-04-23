@@ -1,7 +1,7 @@
 using AirTrafficMonitoring.DataTransferObjects;
 using AirTrafficMonitoring.Interfaces.Logger;
 
-namespace AirTrafficMonitoring.Logger
+namespace AirTrafficMonitoring.CollisionController
 {
     public class SeparationStringBuilder : ISeparationStringBuilder
     {

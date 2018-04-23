@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using AirTrafficMonitoring.Interfaces.Logger;
 
-namespace AirTrafficMonitoring.Logger
+namespace AirTrafficMonitoring.CollisionController
 {
     public class FileWriter : IFileWriter
     {

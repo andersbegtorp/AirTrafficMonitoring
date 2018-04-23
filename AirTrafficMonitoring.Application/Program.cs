@@ -8,6 +8,7 @@ using AirTrafficMonitoring.AirspaceController;
 using AirTrafficMonitoring.CollisionController;
 using AirTrafficMonitoring.Configuration.AirspaceConfiguration;
 using AirTrafficMonitoring.DataTransferObjects;
+using AirTrafficMonitoring.Display;
 using AirTrafficMonitoring.Factory;
 using AirTrafficMonitoring.FlightAnalyzer;
 using AirTrafficMonitoring.FlightAnalyzer.Calculators;
@@ -21,7 +22,6 @@ using AirTrafficMonitoring.Interfaces.FlightAnalyzer.Calculators;
 using AirTrafficMonitoring.Interfaces.FlightManagement;
 using AirTrafficMonitoring.Interfaces.Logger;
 using AirTrafficMonitoring.Interfaces.Transponder;
-using AirTrafficMonitoring.Logger;
 using AirTrafficMonitoring.Transponder;
 using TransponderReceiver;
 
@@ -65,7 +65,7 @@ namespace AirTrafficMonitoring.Application
             IFileWriter fileWriter = new FileWriter();
             var currentDirectory = Directory.GetCurrentDirectory();
             var path = Path.Combine(currentDirectory, "SeparationLog.txt");
-            ISeparationEventLogger logger = new Logger.Logger(collisionController, path, fileWriter );
+            ISeparationEventLogger logger = new CollisionController.Logger(collisionController, path, fileWriter );
             
             Console.ReadLine();
 

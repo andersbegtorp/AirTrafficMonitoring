@@ -4,7 +4,7 @@ using AirTrafficMonitoring.Interfaces.EventArgs;
 using AirTrafficMonitoring.Interfaces.FlightAnalyzer;
 using AirTrafficMonitoring.Interfaces.Logger;
 
-namespace AirTrafficMonitoring.Logger
+namespace AirTrafficMonitoring.Display
 {
     public class ConsoleDisplay : IDisplay, ISeparationEventLogger
     {
