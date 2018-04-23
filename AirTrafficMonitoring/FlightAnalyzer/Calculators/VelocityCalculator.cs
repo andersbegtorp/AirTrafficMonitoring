@@ -29,7 +29,7 @@ namespace AirTrafficMonitoring
         }
 
 
-        private double CalculateVelocity(double distance, TimeSpan time)
+        private double CalculateVelocity(double distance, TimeSpan time) //Metodenavn samme som ovenfor?
         {
             return Math.Round((distance / time.TotalSeconds), 2);
         }
