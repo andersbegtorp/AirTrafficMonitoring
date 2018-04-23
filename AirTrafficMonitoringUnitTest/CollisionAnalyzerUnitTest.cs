@@ -25,42 +25,37 @@ namespace AirTrafficMonitoringUnitTest
             _uut = new CollisionAnalyzer(_fakeDistanceCalculator,_fakeAltitudeDistanceCalculator);
         }
 
-        [TestCase(, , , , , )]   // Virker ikke helt 
-        public void AnalyzeCollision_AnalyzesCollisionBetweenTwoFlights_ReturnsTrue(int x1, int x2, int y1, int y2,
-            int altitude1, int altitude2)
+        [TestCase(4999, 299)]
+        [TestCase(-1, 299)]
+        [TestCase(4999, -1)]
+        public void AnalyzeCollision_AnalyzesCollisionBetweenTwoFlights_ReturnsTrue(int distance, int altitude)
         {
-            //Arrange
-            Track flight1 = new Track() {Altitude = altitude1,  XCoordinate = x1, YCoordinate = y1};
-            Track flight2 = new Track() {Altitude = altitude2, XCoordinate = x2, YCoordinate = y2};
 
-            //Assert
-            Assert.That(_uut.AnalyzeCollision(flight1,flight2), Is.EqualTo(true));
+            _fakeDistanceCalculator
+                .CalculateDistance(Arg.Any<double>(), Arg.Any<double>(), Arg.Any<double>(), Arg.Any<double>())
+                .Returns(distance);
+            _fakeAltitudeDistanceCalculator.CalculateAltitudeDistance(Arg.Any<int>(), Arg.Any<int>()).Returns(altitude);
+                
+                //Assert
+            Assert.That(_uut.AnalyzeCollision(new Track(), new Track()), Is.EqualTo(true));
         }
 
-        [TestCase(1000,2000 , 1000, 2000 , 800 ,100 )] //Virker ikke helt 
-        public void AnalyzeCollision_AnalyzesCollisionBetweenTwoFlights_ReturnsFalse(double x1, double x2, double y1, double y2,
-            int altitude1, int altitude2)
+        [TestCase(5000, 299)]
+        [TestCase(4999, 300)]
+        [TestCase(-1, 300)]
+        [TestCase(5000, -1)]
+
+        public void AnalyzeCollision_AnalyzesCollisionBetweenTwoFlights_ReturnsFalse(int distance, int altitude)
         {
-            //Arrange
-            var flight1 = new Track();
-            var flight2 = new Track();
 
-            flight1.XCoordinate = Convert.ToInt32(x1);
-            flight1.YCoordinate = Convert.ToInt32(y1);
-            flight2.XCoordinate = Convert.ToInt32(x2);
-            flight2.YCoordinate = Convert.ToInt32(y2);
-            flight1.Altitude = altitude1;
-            flight2.Altitude = altitude2;
-
-        //    _fakeDistanceCalculator.CalculateDistance(flight1.XCoordinate, flight1.YCoordinate, flight2.XCoordinate,
-              //  flight2.YCoordinate);
-          //  _fakeAltitudeDistanceCalculator.CalculateAltitudeDistance(flight1.Altitude, flight2.Altitude);
-            //_uut.AnalyzeCollision(flight1, flight2);
+            _fakeDistanceCalculator
+                .CalculateDistance(Arg.Any<double>(), Arg.Any<double>(), Arg.Any<double>(), Arg.Any<double>())
+                .Returns(distance);
+            _fakeAltitudeDistanceCalculator.CalculateAltitudeDistance(Arg.Any<int>(), Arg.Any<int>()).Returns(altitude);
 
             //Assert
-            Assert.That(_uut.AnalyzeCollision(flight1, flight2), Is.EqualTo(false));
+            Assert.That(_uut.AnalyzeCollision(new Track(), new Track()), Is.EqualTo(false));
         }
-
 
     }
 }
