@@ -1,4 +1,4 @@
-﻿namespace AirTrafficMonitoring
+﻿namespace AirTrafficMonitoring.DataTransferObjects
 {
     public class Airspace
     {

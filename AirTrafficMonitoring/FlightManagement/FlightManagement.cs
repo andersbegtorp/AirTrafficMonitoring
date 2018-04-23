@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AirTrafficMonitoring.DataTransferObjects;
 using AirTrafficMonitoring.Interfaces;
+using AirTrafficMonitoring.Interfaces.AirspaceController;
+using AirTrafficMonitoring.Interfaces.EventArgs;
+using AirTrafficMonitoring.Interfaces.FlightManagement;
 
-namespace AirTrafficMonitoring
+namespace AirTrafficMonitoring.FlightManagement
 {
     public class FlightManagement : IFlightManagement
     {

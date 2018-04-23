@@ -1,7 +1,10 @@
 ﻿using System;
 using AirTrafficMonitoring.Interfaces;
+using AirTrafficMonitoring.Interfaces.AirspaceController;
+using AirTrafficMonitoring.Interfaces.EventArgs;
+using AirTrafficMonitoring.Interfaces.Transponder;
 
-namespace AirTrafficMonitoring
+namespace AirTrafficMonitoring.AirspaceController
 {
     public class AirspaceController : IAirspaceController
     {

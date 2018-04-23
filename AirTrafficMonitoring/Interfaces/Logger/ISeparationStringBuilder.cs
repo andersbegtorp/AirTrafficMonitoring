@@ -1,4 +1,6 @@
-namespace AirTrafficMonitoring
+using AirTrafficMonitoring.DataTransferObjects;
+
+namespace AirTrafficMonitoring.Interfaces.Logger
 {
     public interface ISeparationStringBuilder
     {

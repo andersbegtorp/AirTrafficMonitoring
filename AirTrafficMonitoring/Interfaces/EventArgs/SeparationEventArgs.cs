@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace AirTrafficMonitoring.Interfaces
+﻿namespace AirTrafficMonitoring.Interfaces.EventArgs
 {
-    public class SeparationEventArgs : EventArgs
+    public class SeparationEventArgs : System.EventArgs
     {
         public string SeperationNote { get; }
 

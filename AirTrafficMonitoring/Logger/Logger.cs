@@ -1,14 +1,16 @@
-﻿using AirTrafficMonitoring.Interfaces;
+﻿using AirTrafficMonitoring.Interfaces.CollisionController;
+using AirTrafficMonitoring.Interfaces.EventArgs;
+using AirTrafficMonitoring.Interfaces.Logger;
 
-namespace AirTrafficMonitoring
+namespace AirTrafficMonitoring.Logger
 {
     public class Logger : ISeparationEventLogger
     {
         private IFileWriter _fileWriter;
         private readonly string _loggingPath;
-        public Logger(IFlightController flightController, string loggingPath, IFileWriter fileWriter)
+        public Logger(ICollisionController collisionController, string loggingPath, IFileWriter fileWriter)
         {
-            flightController.SeperationEvent += LogSeparationEvent;
+            collisionController.SeperationEvent += LogSeparationEvent;
             _fileWriter = fileWriter;
             _loggingPath = loggingPath;
         }

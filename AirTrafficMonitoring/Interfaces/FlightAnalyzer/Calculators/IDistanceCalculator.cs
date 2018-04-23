@@ -1,4 +1,4 @@
-﻿namespace AirTrafficMonitoring.Interfaces
+﻿namespace AirTrafficMonitoring.Interfaces.FlightAnalyzer.Calculators
 {
     public interface IDistanceCalculator
     {

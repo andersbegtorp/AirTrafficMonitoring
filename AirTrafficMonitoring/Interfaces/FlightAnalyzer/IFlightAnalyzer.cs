@@ -1,7 +1,7 @@
 ﻿using System;
-using AirTrafficMonitoring.Interfaces;
+using AirTrafficMonitoring.Interfaces.EventArgs;
 
-namespace AirTrafficMonitoring
+namespace AirTrafficMonitoring.Interfaces.FlightAnalyzer
 {
     public interface IFlightAnalyzer
     {

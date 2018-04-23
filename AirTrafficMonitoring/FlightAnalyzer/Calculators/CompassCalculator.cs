@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AirTrafficMonitoring.Interfaces;
+using AirTrafficMonitoring.Interfaces.FlightAnalyzer.Calculators;
 
-namespace AirTrafficMonitoring
+namespace AirTrafficMonitoring.FlightAnalyzer.Calculators
 {
     public class CompassCalculator : ICompassCalculator
     {

@@ -1,4 +1,6 @@
-﻿namespace AirTrafficMonitoring.Interfaces
+﻿using AirTrafficMonitoring.Interfaces.EventArgs;
+
+namespace AirTrafficMonitoring.Interfaces.Logger
 {
     public interface ISeparationEventLogger
     {

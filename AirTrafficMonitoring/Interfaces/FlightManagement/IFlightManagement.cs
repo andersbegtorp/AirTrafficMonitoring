@@ -1,6 +1,7 @@
 ﻿using System;
+using AirTrafficMonitoring.Interfaces.EventArgs;
 
-namespace AirTrafficMonitoring.Interfaces
+namespace AirTrafficMonitoring.Interfaces.FlightManagement
 {
     public interface IFlightManagement
     {

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AirTrafficMonitoring.DataTransferObjects;
 using AirTrafficMonitoring.Interfaces;
+using AirTrafficMonitoring.Interfaces.Factory;
 
-namespace AirTrafficMonitoring
+namespace AirTrafficMonitoring.Factory
 {
     public class TrackFactory : ITrackFactory
     {

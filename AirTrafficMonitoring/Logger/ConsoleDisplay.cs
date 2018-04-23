@@ -1,15 +1,18 @@
 ﻿using System;
-using AirTrafficMonitoring.Interfaces;
+using AirTrafficMonitoring.Interfaces.CollisionController;
+using AirTrafficMonitoring.Interfaces.EventArgs;
+using AirTrafficMonitoring.Interfaces.FlightAnalyzer;
+using AirTrafficMonitoring.Interfaces.Logger;
 
-namespace AirTrafficMonitoring
+namespace AirTrafficMonitoring.Logger
 {
     public class ConsoleDisplay : IDisplay, ISeparationEventLogger
     {
 
-        public ConsoleDisplay(IFlightAnalyzer flightAnalyzer, IFlightController flightController)
+        public ConsoleDisplay(IFlightAnalyzer flightAnalyzer, ICollisionController collisionController)
         {
             flightAnalyzer.TracksAnalyzedEvent += DisplayTracks;
-            flightController.SeperationEvent += LogSeparationEvent;
+            collisionController.SeperationEvent += LogSeparationEvent;
         }
         public void DisplayTracks(object o, TrackLogEventArgs arg)
         {

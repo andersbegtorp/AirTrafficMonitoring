@@ -1,8 +1,8 @@
-﻿using System;
+﻿using AirTrafficMonitoring.DataTransferObjects;
 
-namespace AirTrafficMonitoring.Interfaces
+namespace AirTrafficMonitoring.Interfaces.EventArgs
 {
-    public class TrackEventArgs : EventArgs
+    public class TrackEventArgs : System.EventArgs
     {
         public Track Track { get; }
 

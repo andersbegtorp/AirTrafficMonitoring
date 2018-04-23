@@ -59,27 +59,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AirspaceControllerUnitTest.cs" />
-    <Compile Include="AirspaceTracCheckerUnitTest.cs" />
-    <Compile Include="AltitudeDistanceCalculatorUnitTest.cs" />
-    <Compile Include="CollisionAnalyzerUnitTest.cs" />
-    <Compile Include="DistanceCalculatorUnitTest.cs" />
-    <Compile Include="CompassCalculatorUnitTest.cs" />
-    <Compile Include="CourseAnalyserUnitTest.cs" />
-    <Compile Include="FlightAnalyzerUnitTest.cs" />
-    <Compile Include="FlightManagementUnitTest.cs" />
-    <Compile Include="TrackManagementMock.cs" />
-    <Compile Include="TrackManagementUnitTest.cs" />
-    <Compile Include="TrackRemoverUnitTest.cs" />
-    <Compile Include="FlightControllerUnitTest.cs" />
-    <Compile Include="LoggerUnitTest.cs" />
-    <Compile Include="SeparationStringBuilderUnitTest.cs" />
-    <Compile Include="TransponderDataReceiverUnitTest.cs" />
-    <Compile Include="TimeSpanCalculatorUnitTest.cs" />
-    <Compile Include="TrackFactoryUnitTest.cs" />
+    <Compile Include="AirspaceController\AirspaceControllerUnitTest.cs" />
+    <Compile Include="AirspaceController\AirspaceTracCheckerUnitTest.cs" />
+    <Compile Include="CollisionController\AltitudeDistanceCalculatorUnitTest.cs" />
+    <Compile Include="CollisionController\CollisionAnalyzerUnitTest.cs" />
+    <Compile Include="FlightAnalyzer\Calculators\DistanceCalculatorUnitTest.cs" />
+    <Compile Include="FlightAnalyzer\Calculators\CompassCalculatorUnitTest.cs" />
+    <Compile Include="FlightAnalyzer\CourseAnalyserUnitTest.cs" />
+    <Compile Include="FlightAnalyzer\FlightAnalyzerUnitTest.cs" />
+    <Compile Include="FlightManagement\FlightManagementUnitTest.cs" />
+    <Compile Include="FlightManagement\TrackManagementMock.cs" />
+    <Compile Include="FlightManagement\TrackManagementUnitTest.cs" />
+    <Compile Include="FlightManagement\TrackRemoverUnitTest.cs" />
+    <Compile Include="CollisionController\CollisionControllerUnitTest.cs" />
+    <Compile Include="Logger\LoggerUnitTest.cs" />
+    <Compile Include="Logger\SeparationStringBuilderUnitTest.cs" />
+    <Compile Include="Transponder\TransponderDataReceiverUnitTest.cs" />
+    <Compile Include="FlightAnalyzer\Calculators\TimeSpanCalculatorUnitTest.cs" />
+    <Compile Include="Factory\TrackFactoryUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VelocityAnalyzerUnitTest.cs" />
-    <Compile Include="VelocityCalcultorUnitTest.cs" />
+    <Compile Include="FlightAnalyzer\VelocityAnalyzerUnitTest.cs" />
+    <Compile Include="FlightAnalyzer\Calculators\VelocityCalcultorUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -93,6 +93,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using AirTrafficMonitoring.Interfaces;
+using AirTrafficMonitoring.Interfaces.EventArgs;
+using AirTrafficMonitoring.Interfaces.Factory;
+using AirTrafficMonitoring.Interfaces.Transponder;
 using TransponderReceiver;
 
-namespace AirTrafficMonitoring
+namespace AirTrafficMonitoring.Transponder
 {
 
     public class TransponderDataReceiver : ITransponderDataReciever

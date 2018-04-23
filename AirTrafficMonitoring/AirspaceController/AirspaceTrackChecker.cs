@@ -1,6 +1,8 @@
-﻿using AirTrafficMonitoring.Interfaces;
+﻿using AirTrafficMonitoring.DataTransferObjects;
+using AirTrafficMonitoring.Interfaces;
+using AirTrafficMonitoring.Interfaces.AirspaceController;
 
-namespace AirTrafficMonitoring
+namespace AirTrafficMonitoring.AirspaceController
 {
     public class AirspaceTrackChecker : IAirspaceTrackChecker
     {

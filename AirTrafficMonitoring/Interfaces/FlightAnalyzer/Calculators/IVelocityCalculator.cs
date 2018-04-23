@@ -1,4 +1,6 @@
-﻿namespace AirTrafficMonitoring.Interfaces
+﻿using AirTrafficMonitoring.DataTransferObjects;
+
+namespace AirTrafficMonitoring.Interfaces.FlightAnalyzer.Calculators
 {
     public interface IVelocityCalculator
     {

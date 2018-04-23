@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using AirTrafficMonitoring.DataTransferObjects;
 using AirTrafficMonitoring.Interfaces;
+using AirTrafficMonitoring.Interfaces.FlightAnalyzer;
+using AirTrafficMonitoring.Interfaces.FlightAnalyzer.Calculators;
 
-namespace AirTrafficMonitoring
+namespace AirTrafficMonitoring.FlightAnalyzer
 {
     public class CourseAnalyzer : ICourseAnalyzer
     {

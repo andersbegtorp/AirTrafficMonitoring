@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Threading.Tasks;
+using AirTrafficMonitoring.DataTransferObjects;
 using AirTrafficMonitoring.Interfaces;
+using AirTrafficMonitoring.Interfaces.FlightAnalyzer.Calculators;
 
-namespace AirTrafficMonitoring
+namespace AirTrafficMonitoring.FlightAnalyzer.Calculators
 {
     public class VelocityCalculator : IVelocityCalculator
 

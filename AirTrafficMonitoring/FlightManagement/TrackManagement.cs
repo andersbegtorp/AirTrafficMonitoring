@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using AirTrafficMonitoring.DataTransferObjects;
 using AirTrafficMonitoring.Interfaces;
+using AirTrafficMonitoring.Interfaces.FlightManagement;
 
-namespace AirTrafficMonitoring
+namespace AirTrafficMonitoring.FlightManagement
 {
     public class TrackManagement : ITrackManagement
     {
