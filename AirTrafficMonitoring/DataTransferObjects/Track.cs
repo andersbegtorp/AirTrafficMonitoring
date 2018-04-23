@@ -5,8 +5,8 @@ namespace AirTrafficMonitoring.DataTransferObjects
     public class Track
     {
         public string Tag { get; set; }
-        public int XCoordinate { get; set; }
-        public int YCoordinate { get; set; }
+        public double XCoordinate { get; set; }
+        public double YCoordinate { get; set; }
         public int Altitude { get; set; }
         public double HorizontalVelocity { get; set; }
         public double CompassCourse { get; set; }
